@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Clone') {
             steps {
                 echo "Code cloned"
@@ -21,4 +22,20 @@ pipeline {
         }
 
         stage('Deploy') {
+            steps {
+                echo "Deployment done "
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline SUCCESS "
+        }
+
+        failure {
+            echo "Pipeline FAILED "
+        }
+    }
+}
 
